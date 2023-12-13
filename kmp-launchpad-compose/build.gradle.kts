@@ -10,6 +10,8 @@ plugins {
 }
 
 kotlin {
+    applyDefaultHierarchyTemplate()
+
     androidTarget {
         publishAllLibraryVariants()
         compilations.all {
@@ -44,11 +46,6 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.ui)
         }
-        commonTest.dependencies {
-            implementation(kotlin("test-common"))
-            implementation(kotlin("test-annotations-common"))
-            implementation(libs.kotlin.test)
-        }
     }
 }
 
@@ -66,35 +63,17 @@ ktlint {
     ignoreFailures.set(true)
 }
 
-group = "com.github.bottlerocketstudios"
+group = extra["publishing.group"] as String
 version = libs.versions.launchpad.compose.get()
 
 publishing {
-    publications {
-        register<MavenPublication>("$name-release") {
-            artifactId = name.lowercase()
-            from(components["kotlin"])
-
-            pom {
-                description = "Compose components for Launchpad"
-
-                licenses {
-                    license {
-                        name = "The Apache License, Version 2.0"
-                        url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
-                    }
-                }
-            }
-        }
-    }
-
     repositories {
         maven {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/BottleRocketStudios/KMP-LaunchPad-Compose")
             credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
+                username = System.getenv("GITHUB_ACTOR") ?: System.getenv("QSRKIT_USERNAME")
+                password = System.getenv("GITHUB_TOKEN") ?: System.getenv("QSRKIT_TOKEN")
             }
         }
     }
