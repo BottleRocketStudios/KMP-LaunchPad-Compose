@@ -70,23 +70,23 @@ group = "com.github.bottlerocketstudios"
 version = libs.versions.launchpad.compose.get()
 
 publishing {
-    publications {
-        register<MavenPublication>("$name-release") {
-//            artifactId = name.lowercase()
-            from(components["kotlin"])
-
-            pom {
-                description = "Compose components for Launchpad"
-
-                licenses {
-                    license {
-                        name = "The Apache License, Version 2.0"
-                        url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
-                    }
-                }
-            }
-        }
-    }
+//    publications {
+////        register<MavenPublication>("$name-release") {
+////           artifactId = name.lowercase()
+////            from(components["kotlin"])
+////
+////            pom {
+////                description = "Compose components for Launchpad"
+////
+////                licenses {
+////                    license {
+////                        name = "The Apache License, Version 2.0"
+////                        url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+////                    }
+////                }
+////            }
+//        }
+//    }
 
     repositories {
         maven {
