@@ -71,7 +71,7 @@ ktlint {
 }
 
 group = "com.github.bottlerocketstudios"
-version = libs.versions.launchpad.compose.get()
+version = "${libs.versions.launchpad.compose.get()}-SNAPSHOT"
 
 publishing {
     repositories {
