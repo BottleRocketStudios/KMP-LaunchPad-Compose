@@ -36,8 +36,7 @@ kotlin {
             implementation(compose.material3)
             implementation(libs.androidx.navigation.compose)
         }
-        val commonMain by getting {
-            dependencies {
+        commonMain.dependencies {
                 implementation(compose.animation)
                 @OptIn(ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
@@ -46,15 +45,12 @@ kotlin {
                 implementation(compose.runtime)
                 implementation(compose.ui)
             }
-        }
         commonTest.dependencies {
             implementation(kotlin("test-common"))
             implementation(kotlin("test-annotations-common"))
             implementation(libs.kotlin.test)
         }
-        iosMain {
-            dependsOn(commonMain)
-        }
+        iosMain {}
     }
 }
 
@@ -81,8 +77,8 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/BottleRocketStudios/KMP-LaunchPad-Compose")
             credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
+                username = System.getenv("QSRKIT_USERNAME")
+                password = System.getenv("QSRKIT_TOKEN")
             }
         }
     }
