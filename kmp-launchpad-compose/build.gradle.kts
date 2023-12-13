@@ -71,7 +71,7 @@ version = libs.versions.launchpad.compose.get()
 
 publishing {
     publications {
-        register<MavenPublication>("$name-release") {
+        register<MavenPublication>(name) {
             artifactId = name.lowercase()
             from(components["kotlin"])
 
