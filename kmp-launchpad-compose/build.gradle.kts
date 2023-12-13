@@ -1,5 +1,4 @@
 import org.jetbrains.compose.ExperimentalComposeLibrary
-import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
 plugins {
     alias(libs.plugins.androidLibrary)
@@ -22,7 +21,6 @@ kotlin {
         }
     }
 
-    val xcf = XCFramework()
     listOf(
         iosX64(),
         iosArm64(),
@@ -30,7 +28,6 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "kmp-launchpad-compose"
-            xcf.add(this)
         }
     }
 
@@ -39,19 +36,24 @@ kotlin {
             implementation(compose.material3)
             implementation(libs.androidx.navigation.compose)
         }
-        commonMain.dependencies {
-            implementation(compose.animation)
-            @OptIn(ExperimentalComposeLibrary::class)
-            implementation(compose.components.resources)
-            implementation(compose.foundation)
-            implementation(compose.material3)
-            implementation(compose.runtime)
-            implementation(compose.ui)
+        val commonMain by getting {
+            dependencies {
+                implementation(compose.animation)
+                @OptIn(ExperimentalComposeLibrary::class)
+                implementation(compose.components.resources)
+                implementation(compose.foundation)
+                implementation(compose.material3)
+                implementation(compose.runtime)
+                implementation(compose.ui)
+            }
         }
         commonTest.dependencies {
             implementation(kotlin("test-common"))
             implementation(kotlin("test-annotations-common"))
             implementation(libs.kotlin.test)
+        }
+        iosMain {
+            dependsOn(commonMain)
         }
     }
 }
