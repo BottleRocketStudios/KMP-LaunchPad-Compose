@@ -1,4 +1,5 @@
 import org.jetbrains.compose.ExperimentalComposeLibrary
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
 plugins {
     alias(libs.plugins.androidLibrary)
@@ -21,6 +22,7 @@ kotlin {
         }
     }
 
+    val xcf = XCFramework()
     listOf(
         iosX64(),
         iosArm64(),
@@ -28,6 +30,7 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "kmp-launchpad-compose"
+            xcf.add(this)
         }
     }
 
