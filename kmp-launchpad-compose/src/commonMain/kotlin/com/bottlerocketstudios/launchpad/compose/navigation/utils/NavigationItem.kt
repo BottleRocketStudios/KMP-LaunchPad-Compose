@@ -25,7 +25,7 @@ data class NavigationItem(
     val label: @Composable () -> Unit,
     val modifier: Modifier = Modifier,
     val enabled: Boolean = true,
-    val onClick: (NavigationItem) -> Unit = {},
+    val onClick: (NavigationItem) -> Unit = {}
 )
 
 /**

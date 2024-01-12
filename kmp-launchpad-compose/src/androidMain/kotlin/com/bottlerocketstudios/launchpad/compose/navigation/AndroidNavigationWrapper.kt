@@ -46,7 +46,7 @@ fun AndroidNavigationWrapper(
     widthSize: WindowWidthSizeClass,
     devicePosture: DevicePosture,
     navigationItems: List<NavigationItem>,
-    app: @Composable (navHostController: NavHostController?, bottomBar: (@Composable () -> Unit)) -> Unit,
+    app: @Composable (navHostController: NavHostController?, bottomBar: (@Composable () -> Unit)) -> Unit
 ) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val navController = rememberNavController()
@@ -65,19 +65,19 @@ fun AndroidNavigationWrapper(
 
     when (navigationType.value) {
         NavigationType.PERMANENT_NAVIGATION_DRAWER -> PermanentNavigationDrawer(
-            drawerContent = { PermanentDrawerSheet { LaunchpadDrawerContent(navItems) { it == currentRoute } } },
+            drawerContent = { PermanentDrawerSheet { LaunchpadDrawerContent(navItems) { it == currentRoute } } }
         ) { app(navController) { } }
 
         NavigationType.MODAL_NAVIGATION -> ModalNavigationDrawer(
             drawerState = drawerState,
-            drawerContent = { ModalDrawerSheet { LaunchpadDrawerContent(navItems) { it == currentRoute } } },
+            drawerContent = { ModalDrawerSheet { LaunchpadDrawerContent(navItems) { it == currentRoute } } }
         ) { app(navController) { } }
 
         else -> Row {
             AnimatedVisibility(
                 visible = navigationType.value == NavigationType.NAVIGATION_RAIL,
                 enter = slideInVertically(animationSpec = spring(stiffness = Spring.StiffnessHigh)),
-                exit = slideOutHorizontally(animationSpec = spring(stiffness = Spring.StiffnessHigh)),
+                exit = slideOutHorizontally(animationSpec = spring(stiffness = Spring.StiffnessHigh))
             ) {
                 LaunchpadNavigationRail(navItems) { it == currentRoute }
             }
@@ -90,7 +90,7 @@ fun AndroidNavigationWrapper(
                     AnimatedVisibility(
                         visible = navigationType.value == NavigationType.BOTTOM_NAVIGATION,
                         enter = slideInVertically(animationSpec = spring(stiffness = Spring.StiffnessHigh)),
-                        exit = slideOutHorizontally(animationSpec = spring(stiffness = Spring.StiffnessHigh)),
+                        exit = slideOutHorizontally(animationSpec = spring(stiffness = Spring.StiffnessHigh))
                     ) {
                         LaunchpadBottomAppBar(navItems) { it == currentRoute }
                     }
@@ -99,4 +99,3 @@ fun AndroidNavigationWrapper(
         }
     }
 }
-

@@ -4,7 +4,6 @@ import android.app.Activity
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
-import com.bottlerocketstudios.launchpad.compose.navigation.util.toLocalModel
 import com.bottlerocketstudios.launchpad.compose.navigation.utils.WindowWidthSizeClass
 
 /**

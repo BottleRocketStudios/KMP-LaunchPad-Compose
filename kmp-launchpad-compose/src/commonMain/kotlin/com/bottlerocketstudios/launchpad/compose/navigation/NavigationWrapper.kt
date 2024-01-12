@@ -73,13 +73,11 @@ fun NavigationWrapper(
                 }
             ) { app(navigator) { } }
 
-
         NavigationType.MODAL_NAVIGATION ->
             ModalNavigationDrawer(
                 drawerState = drawerState,
                 drawerContent = { ModalDrawerSheet { LaunchpadDrawerContent(navItems) { it == currentRoute?.route } } }
             ) { app(navigator) { } }
-
 
         else -> Row {
             AnimatedVisibility(
@@ -109,4 +107,3 @@ fun NavigationWrapper(
         }
     }
 }
-

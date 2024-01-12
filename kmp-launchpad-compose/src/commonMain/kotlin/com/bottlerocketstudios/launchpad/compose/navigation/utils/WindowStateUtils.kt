@@ -123,4 +123,3 @@ interface FoldingFeature : DisplayFeature {
      */
     val state: State
 }
-
