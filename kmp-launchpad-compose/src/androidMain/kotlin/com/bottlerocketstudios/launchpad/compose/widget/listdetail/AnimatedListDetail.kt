@@ -1,4 +1,4 @@
-package com.bottlerocketstudios.launchpadcompose.widget.listdetail
+package com.bottlerocketstudios.launchpad.compose.widget.listdetail
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.ExperimentalAnimationApi

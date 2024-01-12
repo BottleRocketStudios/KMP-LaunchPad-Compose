@@ -34,13 +34,17 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.material3)
             implementation(libs.androidx.navigation.compose)
+            implementation(libs.androidx.window)
+            implementation(libs.compose.material3.window.size)
         }
         commonMain.dependencies {
+            api(libs.precompose)
             implementation(compose.animation)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
             implementation(compose.foundation)
             implementation(compose.material3)
+            implementation(compose.materialIconsExtended)
             implementation(compose.runtime)
             implementation(compose.ui)
         }
