@@ -1,0 +1,13 @@
+[*.{kt,kts}]
+# More info about .editorconfig at https://github.com/pinterest/ktlint#custom-editorconfig-properties
+# possible values: number (e.g. 2) OR unset (no quotes - makes ktlint ignore indentation completely)
+indent_size=4
+# true (recommended) / false
+insert_final_newline=true
+# possible values: number (e.g. 120) (package name, imports & comments are ignored) OR off (no quotes)
+# it's automatically set to 100 on `ktlint --android ...` (per Android Kotlin Style Guide)
+# that is just not long enough IMO - using 200 for now
+max_line_length=200
+# Makes git commit history look good and appending items to lists easier
+ij_kotlin_allow_trailing_comma=true
+ij_kotlin_allow_trailing_comma_on_call_site=true

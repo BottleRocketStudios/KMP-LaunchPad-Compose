@@ -16,18 +16,18 @@ val exampleNavigationItems = listOf(
         route = "/home",
         selectedIcon = { Icon(imageVector = Icons.Filled.Home, contentDescription = "") },
         unselectedIcon = { Icon(imageVector = Icons.Outlined.Home, contentDescription = "") },
-        label = { Text("Home") }
+        label = { Text("Home") },
     ),
     NavigationItem(
         route = "/settings",
         selectedIcon = { Icon(imageVector = Icons.Filled.Settings, contentDescription = "") },
         unselectedIcon = { Icon(imageVector = Icons.Outlined.Settings, contentDescription = "") },
-        label = { Text("Settings") }
+        label = { Text("Settings") },
     ),
     NavigationItem(
         route = "/profile",
         selectedIcon = { Icon(imageVector = Icons.Filled.VerifiedUser, contentDescription = "") },
         unselectedIcon = { Icon(imageVector = Icons.Outlined.VerifiedUser, contentDescription = "") },
-        label = { Text("Profile") }
+        label = { Text("Profile") },
     )
 )
