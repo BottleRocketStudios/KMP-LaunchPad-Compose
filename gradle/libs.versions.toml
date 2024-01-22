@@ -9,7 +9,7 @@ precompose = "1.5.10"
 
 compile-sdk = "34"
 min-sdk = "24"
-launchpad-compose = "0.0.2"
+launchpad-compose = "0.0.3"
 
 [libraries]
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
