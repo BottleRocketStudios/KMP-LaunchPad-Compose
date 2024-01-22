@@ -44,7 +44,7 @@ fun ComponentActivity.createDevicePostureFlow() = WindowInfoTracker.getOrCreate(
     .stateIn(
         scope = lifecycleScope,
         started = SharingStarted.Eagerly,
-        initialValue = DevicePosture.NormalPosture
+        initialValue = DevicePosture.NormalPosture,
     )
 
 /**
