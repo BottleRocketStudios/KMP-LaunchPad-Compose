@@ -14,12 +14,8 @@ kotlin {
 
     androidTarget {
         publishAllLibraryVariants()
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-            }
-        }
     }
+    jvmToolchain(17)
 
     jvm("desktop")
     task("testClasses")
@@ -36,7 +32,6 @@ kotlin {
             implementation(libs.compose.material3.window.size)
         }
         commonMain.dependencies {
-            api(libs.precompose)
             implementation(compose.animation)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
@@ -45,6 +40,7 @@ kotlin {
             implementation(compose.materialIconsExtended)
             implementation(compose.runtime)
             implementation(compose.ui)
+            implementation(libs.navigation.compose)
         }
         commonTest.dependencies {
             implementation(kotlin("test-common"))
